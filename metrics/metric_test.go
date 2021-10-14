@@ -24,6 +24,9 @@ type testMetric struct {
 	reporter *testReporter
 }
 
+func (t *testMetric) OnBeforeResponseDecode(httpResp *http.Response) {
+}
+
 func (t *testMetric) EndRequest(ctx context.Context, err error, httpResp *http.Response, metro string) {
 	t.reporter.end++
 }

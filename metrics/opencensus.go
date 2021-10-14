@@ -54,6 +54,9 @@ type openCensusRequest struct {
 	start int64
 }
 
+func (o *openCensusRequest) OnBeforeResponseDecode(httpResp *http.Response) {
+}
+
 func (o *openCensusRequest) EndRequest(ctx context.Context, err error, httpResp *http.Response, metro string) {
 	now := time.Now().UnixNano() / int64(time.Millisecond)
 	duration := now - o.start

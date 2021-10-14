@@ -286,6 +286,7 @@ func (c *Client) getJSON(ctx context.Context, config *apiConfig, apiReq apiReque
 	}
 	defer httpResp.Body.Close()
 
+	requestMetrics.OnBeforeResponseDecode(httpResp)
 	err = json.NewDecoder(httpResp.Body).Decode(resp)
 	requestMetrics.EndRequest(ctx, err, httpResp, httpResp.Header.Get("x-goog-maps-metro-area"))
 	return err
@@ -300,6 +301,7 @@ func (c *Client) postJSON(ctx context.Context, config *apiConfig, apiReq interfa
 	}
 	defer httpResp.Body.Close()
 
+	requestMetrics.OnBeforeResponseDecode(httpResp)
 	err = json.NewDecoder(httpResp.Body).Decode(resp)
 	requestMetrics.EndRequest(ctx, err, httpResp, httpResp.Header.Get("x-goog-maps-metro-area"))
 	return err
@@ -345,7 +347,7 @@ func (c *Client) getBinary(ctx context.Context, config *apiConfig, apiReq apiReq
 		requestMetrics.EndRequest(ctx, err, httpResp, "")
 		return binaryResponse{}, err
 	}
-
+	requestMetrics.OnBeforeResponseDecode(httpResp)
 	requestMetrics.EndRequest(ctx, err, httpResp, httpResp.Header.Get("x-goog-maps-metro-area"))
 	return binaryResponse{httpResp.StatusCode, httpResp.Header.Get("Content-Type"), httpResp.Body}, nil
 }

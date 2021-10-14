@@ -10,6 +10,7 @@ type Reporter interface {
 }
 
 type Request interface {
+	OnBeforeResponseDecode(httpResp *http.Response)
 	EndRequest(ctx context.Context, err error, httpResp *http.Response, metro string)
 }
 
@@ -24,4 +25,7 @@ type noOpRequest struct {
 }
 
 func (n noOpRequest) EndRequest(ctx context.Context, err error, httpResp *http.Response, metro string) {
+}
+
+func (n noOpRequest) OnBeforeResponseDecode(httpResp *http.Response) {
 }
