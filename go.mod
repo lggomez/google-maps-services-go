@@ -1,4 +1,5 @@
-module github.com/lggomez/maps
+module github.com/lggomez/google-maps-services-go
+
 go 1.14
 
 require (

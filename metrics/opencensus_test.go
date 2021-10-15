@@ -5,8 +5,8 @@ import (
 	"go.opencensus.io/stats/view"
 	"testing"
 
-	"github.com/lggomez/maps"
-	"github.com/lggomez/maps/metrics"
+	maps "github.com/lggomez/google-maps-services-go"
+	"github.com/lggomez/google-maps-services-go/metrics"
 )
 
 func TestClientWithOpenCensus(t *testing.T) {

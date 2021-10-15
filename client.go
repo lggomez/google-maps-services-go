@@ -27,8 +27,8 @@ import (
 	"strings"
 
 	"golang.org/x/time/rate"
-	"github.com/lggomez/maps/internal"
-	"github.com/lggomez/maps/metrics"
+	"github.com/lggomez/google-maps-services-go/internal"
+	"github.com/lggomez/google-maps-services-go/metrics"
 )
 
 // Client may be used to make requests to the Google Maps WebService APIs

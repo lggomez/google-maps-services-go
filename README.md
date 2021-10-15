@@ -111,7 +111,7 @@ import (
 	"log"
 
 	"github.com/kr/pretty"
-	"github.com/lggomez/maps"
+	maps "github.com/lggomez/google-maps-services-go"
 )
 
 func main() {
@@ -148,7 +148,7 @@ import (
 	"log"
 
 	"github.com/kr/pretty"
-	"github.com/lggomez/maps"
+	maps "github.com/lggomez/google-maps-services-go"
 )
 
 func main() {
